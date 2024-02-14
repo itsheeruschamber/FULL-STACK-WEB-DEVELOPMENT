@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <style>
+    table {
+      margin: 0 auto;
+    }
+
+    button {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <center>
+    <h2>Simple Calculator</h2>
+
+    <table>
+      <tr>
+        <td><input type="number" id="num1" placeholder="Enter number 1"></td>
+      </tr>
+      <tr>
+        <td><input type="number" id="num2" placeholder="Enter number 2"></td>
+      </tr>
+      <tr>
+        <td><br><button onclick="add()">Addition (+)</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="subtract()">Subtraction (-)</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="multiply()">Multiplication (*)</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="divide()">Division (/)</button></td>
+      </tr>
+      <tr>
+        <td><br><h3>Result: <span id="result">0</span></h3></td>
+      </tr>
+    </table>
+
+  </center>
+
+  <script>
+    function add() {
+      performOperation('addition', '+');
+    }
+
+    function subtract() {
+      performOperation('subtraction', '-');
+    }
+
+    function multiply() {
+      performOperation('multiplication', '*');
+    }
+
+    function divide() {
+      performOperation('division', '/');
+    }
+
+    function performOperation(operation, symbol) {
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+
+      if (isNaN(num1) || isNaN(num2)) {
+        alert('Please enter valid numbers');
+        return;
+      }
+
+      var result;
+
+      switch (operation) {
+        case 'addition':
+          result = num1 + num2;
+          break;
+        case 'subtraction':
+          result = num1 - num2;
+          break;
+        case 'multiplication':
+          result = num1 * num2;
+          break;
+        case 'division':
+          if (num2 === 0) {
+            alert('Cannot divide by zero');
+            return;
+          }
+          result = num1 / num2;
+          break;
+        default:
+          alert('Invalid operation');
+          return;
+      }
+
+      document.getElementById('result').textContent = result;
+      alert('Result of ' + num1 + ' ' + symbol + ' ' + num2 + ' is: ' + result);
+    }
+  </script>
+
+</body>
+</html>
