@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 21691A3244 Text Growing,Shrinking</title>
+  <style>
+    #displayText
+	{
+      		transition: font-size 0.5s ease;
+    	}
+  </style>
+</head>
+<body>
+  <div id="displayText" style="color: red; font-size: 10pt;">TEXT-GROWING</div>
+  <script>
+    function animateText(){
+      const displayText = document.getElementById('displayText');
+      let fontSize = 10;
+      let growing = true;
+      function updateText(){
+        growing ? fontSize += 2 : fontSize -= 2;
+        if ((growing && fontSize >= 50) || (!growing && fontSize <= 5)){
+          growing = !growing;
+          displayText.style.color = growing ? 'red' : 'blue';
+          displayText.textContent = growing ? 'TEXT-GROWING' : 'TEXT-SHRINKING';
+        }
+        displayText.style.fontSize = `${fontSize}pt`;
+      }
+      setInterval(updateText, 100);
+    }
+    animateText();
+  </script>
+</body>
+</html>
