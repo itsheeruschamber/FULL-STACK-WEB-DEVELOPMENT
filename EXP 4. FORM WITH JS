@@ -1,0 +1,127 @@
+  <!DOCTYPE html>
+<html>
+<head>
+    <title>REGISTRATION FORM</title>
+    <script>  
+        function validateForm(){  
+            var userID = document.forms["registrationForm"]["userID"].value;
+            var password = document.forms["registrationForm"]["password"].value;
+            var name = document.forms["registrationForm"]["name"].value;
+            var address = document.forms["registrationForm"]["address"].value;
+            var country = document.forms["registrationForm"]["country"].value;
+            var zipCode = document.forms["registrationForm"]["zipCode"].value;
+            var email = document.forms["registrationForm"]["email"].value;
+
+            // Validation for User ID
+            var userIDRegex = /^[a-zA-Z0-9]{10}$/;
+            if(userID == null || userID === "" || !userID.match(userIDRegex)){
+                alert("User ID must be exactly 10 characters long and alphanumeric.");
+                return false;
+            }
+
+            // Validation for Password length (8 to 12 characters)
+            if(password.length < 8 || password.length > 12){
+                alert("Password must be between 8 and 12 characters long.");
+                return false;
+            }
+
+            // Validation for Name (alphabetic or alphanumeric but not only numeric)
+            var nameRegex = /^[a-zA-Z0-9]+$/;
+            if(name == null || name === "" || !name.match(nameRegex) || !isNaN(name)){
+                alert("Name must contain only alphabetic characters or alphanumeric characters but not only numeric.");
+                return false;
+            }
+
+            // Validation for Address
+            if(address == null || address === ""){
+                alert("Address can't be blank");
+                return false;
+            }
+
+            // Validation for Country
+            if(country == null || country === ""){
+                alert("Country can't be blank");
+                return false;
+            }
+
+            // Validation for Zip Code length (exactly 6 digits)
+            if(zipCode.length !== 6 || isNaN(zipCode)){
+                alert("Zip Code must be exactly 6 digits long and numeric.");
+                return false;
+            }
+
+            // Validation for Email
+            if(email == null || email === ""){
+                alert("Email can't be blank");
+                return false;
+            }
+
+            // Additional validations can be added as needed
+
+            return true;
+        }  
+    </script>
+</head>
+<body>
+    <center>
+        <form name="registrationForm" action="login.html" method="get" onsubmit="return validateForm()">
+            <h1>REGISTRATION FORM</h1>
+            <table>
+                <tr>
+                    <td>User ID:</td>
+                    <td><input type="text" name="userID" size="15" required /></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password" size="15" required /></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="name" size="30" required /></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td colspan="3"><textarea name="address" rows="4" cols="50" required></textarea></td>
+                </tr>
+                <tr>
+                    <td>Country:</td>
+                    <td><input type="text" name="country" size="20" required /></td>
+                </tr>
+                <tr>
+                    <td>Zip Code:</td>
+                    <td><input type="text" name="zipCode" size="10" required /></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td colspan="3"><input type="email" name="email" size="30" required /></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td colspan="3">
+                        <input type="radio" value="Male" name="gender" checked> Male
+                        <input type="radio" value="Female" name="gender"> Female
+                        <input type="radio" value="Other" name="gender"> Other
+                    </td>
+                </tr>
+                <tr>
+                    <td>Languages:</td>
+                    <td colspan="3">
+                        <input type="checkbox" name="language" value="English"> English
+                        <input type="checkbox" name="language" value="NonEnglish"> Non English
+                    </td>
+                </tr>
+                <tr>
+                    <td>About:</td>
+                    <td colspan="3"><textarea name="about" rows="4" cols="50" style="width: 100%;" placeholder="Enter text here"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <button type="submit">Submit</button>
+                        <button type="reset">Reset</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+</body>
+</html>
