@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>21691A3244 Form</title>
+</head>
+<body>
+    <center>
+    <form>
+        <table cellpadding="10" cellspacing="10">
+            <tr>
+                <td>
+                    <div>
+                        <h1>Reserve Your Ticket</h1>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" class="radio" name="r">
+                    <label class="text-white">One Way</label>
+                </td>
+                <td>
+                    <input type="radio" class="radio" name="r">
+                    <label class="text-white">Return</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" placeholder="From">
+                </td>
+                <td>
+                    <input type="text" placeholder="To">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label class="text-white">Depart</label>
+                    <input type="date" class="tarikh bg-dark text-white">
+                </td>
+                <td>
+                    <label class="text-white">Return</label>
+                    <input type="date" class="tarikh bg-dark">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="number" class="bg-dark person" placeholder="Adults">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="number" class="bg-dark person" placeholder="Children">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label class="text-white travel">Travel Class</label>
+                    <select class="bg-dark text-white travel2">
+                        <option></option>
+                        <option>First Class/1A</option>
+                        <option>AC 2tier/2A</option>
+                        <option>AC 3tier/3A</option>
+                        <option>Executive class chair car/Economy Class</option>
+                        <option>AC Chair Car</option>
+                        <option>Sleeper Class</option>
+                        <option>Second Class</option>
+                        <option>General</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Check Availability" class="submit-btn">
+                </td>
+            </tr>
+        </table>
+    </form>
+    </center>
+</body>
+</html>
